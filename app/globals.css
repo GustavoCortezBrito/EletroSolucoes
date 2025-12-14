@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --foreground-rgb: 30, 42, 138;
+  --background-start-rgb: 240, 244, 255;
+  --background-end-rgb: 255, 255, 255;
+  --primary-blue: #1e2a8a;
+  --primary-orange: #f97316;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 13, 17, 71;
+    --background-end-rgb: 30, 42, 138;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #1e2a8a, #f97316);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.logo-gradient {
+  background: linear-gradient(135deg, #1e2a8a 0%, #f97316 100%);
+}
+
+.hero-gradient {
+  background: linear-gradient(135deg, #1e2a8a 0%, #3b4fb8 50%, #f97316 100%);
+}
+
+.logo-container {
+  background: linear-gradient(135deg, #1e2a8a 0%, #f97316 100%);
+  box-shadow: 0 4px 15px rgba(249, 115, 22, 0.3), 0 0 20px rgba(30, 42, 138, 0.2);
+  transition: all 0.3s ease;
+}
+
+.logo-container:hover {
+  box-shadow: 0 6px 20px rgba(249, 115, 22, 0.4), 0 0 25px rgba(30, 42, 138, 0.3);
+  transform: translateY(-1px);
+}
