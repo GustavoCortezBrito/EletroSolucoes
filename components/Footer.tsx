@@ -183,7 +183,19 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-primary-300 text-sm">
               <p>© {currentYear} Eletro Soluções. Todos os direitos reservados.</p>
-              <p className="mt-1">Desenvolvido por <span className="text-secondary-400 font-medium">Gustavo Cortez de Brito</span>, Dev Web</p>
+              <p className="mt-1">
+                Desenvolvido por{' '}
+                <a 
+                  href="https://www.instagram.com/gustavocortez.dev/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-secondary-400 font-medium hover:text-secondary-300 transition-colors inline-flex items-center gap-1"
+                >
+                  Gustavo Cortez de Brito
+                  <Instagram className="h-3 w-3" />
+                </a>
+                , Dev Web
+              </p>
             </div>
             
             <div className="flex space-x-6 text-sm">
