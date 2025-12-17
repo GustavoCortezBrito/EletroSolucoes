@@ -5,7 +5,7 @@ import { Phone, Mail, Instagram, Clock, MessageCircle, Linkedin, Facebook } from
 import LogoIcon from './LogoIcon'
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear()
+  const currentYear = 2024
 
   const services = [
     'Homologação junto à Concessionária',
@@ -122,11 +122,11 @@ const Footer = () => {
               </a>
               
               <a
-                href="mailto:contato@eletrosolucoes.com.br"
+                href="mailto:bsenergiasolar17@gmail.com"
                 className="flex items-center space-x-3 text-primary-200 hover:text-white transition-colors"
               >
                 <Mail className="h-5 w-5 text-secondary-500" />
-                <span>contato@eletrosolucoes.com.br</span>
+                <span>bsenergiasolar17@gmail.com</span>
               </a>
               
               <div className="flex items-center space-x-3 text-primary-200">

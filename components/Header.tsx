@@ -16,41 +16,30 @@ const Header = () => {
   ]
 
   return (
-    <motion.header 
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-lg z-50 border-b border-primary-100"
-    >
+    <header className="fixed top-0 w-full bg-white shadow-lg z-50 border-b-2 border-gray-300">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <motion.a
+          <a
             href="/"
-            whileHover={{ scale: 1.05 }}
             className="flex items-center space-x-3 cursor-pointer"
           >
             <LogoIcon size={44} />
             <span className="text-xl font-bold gradient-text">
               Eletro Soluções
             </span>
-          </motion.a>
+          </a>
 
           {/* Desktop Menu */}
-          <nav className="hidden md:flex space-x-8">
+          <nav className="flex space-x-4 bg-gray-50 p-2 rounded-lg">
             {menuItems.map((item, index) => (
-              <motion.a
+              <a
                 key={item.name}
                 href={item.href}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-                className="text-primary-700 hover:text-secondary-500 font-medium transition-colors"
+                className="text-gray-800 hover:text-orange-600 font-semibold transition-colors px-3 py-2 rounded-md hover:bg-white border border-transparent hover:border-gray-200"
               >
                 {item.name}
-              </motion.a>
+              </a>
             ))}
           </nav>
 
@@ -65,29 +54,21 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <motion.nav
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="md:hidden mt-4 pb-4"
-          >
-            {menuItems.map((item, index) => (
-              <motion.a
+          <nav className="md:hidden mt-4 pb-4 bg-white border-t border-gray-200">
+            {menuItems.map((item) => (
+              <a
                 key={item.name}
                 href={item.href}
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: index * 0.1 }}
                 onClick={() => setIsMenuOpen(false)}
-                className="block py-2 text-primary-700 hover:text-secondary-500 font-medium transition-colors"
+                className="block py-3 px-4 text-blue-700 hover:text-orange-500 font-medium transition-colors hover:bg-gray-50"
               >
                 {item.name}
-              </motion.a>
+              </a>
             ))}
-          </motion.nav>
+          </nav>
         )}
       </div>
-    </motion.header>
+    </header>
   )
 }
 

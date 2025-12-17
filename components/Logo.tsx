@@ -8,8 +8,8 @@ interface LogoProps {
 }
 
 const Logo = ({ className = "", size = 40 }: LogoProps) => {
-  // Gerar ID único para evitar conflitos de gradiente
-  const gradientId = useMemo(() => `orangeGradient-${Math.random().toString(36).substr(2, 9)}`, [])
+  // ID fixo para evitar problemas de hidratação
+  const gradientId = `orangeGradient-main`
   
   return (
     <svg

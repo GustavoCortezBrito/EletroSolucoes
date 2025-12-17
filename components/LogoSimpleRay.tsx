@@ -6,7 +6,7 @@ interface LogoSimpleRayProps {
 }
 
 const LogoSimpleRay = ({ className = "", size = 40 }: LogoSimpleRayProps) => {
-  const uniqueId = `logo-${Math.random().toString(36).substr(2, 9)}`
+  const uniqueId = `logo-simple-ray-gradient`
   
   return (
     <div 

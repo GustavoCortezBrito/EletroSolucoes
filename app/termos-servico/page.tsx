@@ -3,21 +3,31 @@
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import Breadcrumb from '@/components/Breadcrumb'
-import { Metadata } from 'next'
 import { motion } from 'framer-motion'
-
-export const metadata: Metadata = {
-  title: 'Termos de Serviço | Eletro Soluções',
-  description: 'Termos de serviço da Eletro Soluções - Condições para utilização de nossos serviços de energia solar.',
-}
+// import SEO from '@/components/SEO'
+// import { termsPageSEO } from '@/lib/seo'
+import { breadcrumbSchema } from '@/lib/structured-data'
 
 export default function TermosServico() {
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
-    >
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            breadcrumbSchema([
+              { name: 'Início', url: 'https://eletrosolucoes.com.br' },
+              { name: 'Termos de Serviço', url: 'https://eletrosolucoes.com.br/termos-servico' }
+            ])
+          )
+        }}
+      />
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5 }}
+        suppressHydrationWarning
+      >
       <Header />
       <main className="pt-20 min-h-screen bg-gradient-to-br from-secondary-50 to-white">
         <div className="container mx-auto px-4 py-16">
@@ -30,7 +40,7 @@ export default function TermosServico() {
             
             <div className="prose prose-lg max-w-none text-primary-700">
               <p className="text-lg mb-6">
-                <strong>Última atualização:</strong> {new Date().toLocaleDateString('pt-BR')}
+                <strong>Última atualização:</strong> 15 de dezembro de 2024
               </p>
 
               <section className="mb-8">
@@ -121,7 +131,7 @@ export default function TermosServico() {
                   Para esclarecimentos sobre estes termos:
                 </p>
                 <ul className="list-none mb-4">
-                  <li><strong>E-mail:</strong> contato@eletrosolucoes.com.br</li>
+                  <li><strong>E-mail:</strong> bsenergiasolar17@gmail.com</li>
                   <li><strong>Telefone:</strong> (18) 99739-1723</li>
                   <li><strong>WhatsApp:</strong> (18) 99606-5711</li>
                 </ul>
@@ -131,6 +141,7 @@ export default function TermosServico() {
         </div>
       </main>
       <Footer />
-    </motion.div>
+      </motion.div>
+    </>
   )
 }

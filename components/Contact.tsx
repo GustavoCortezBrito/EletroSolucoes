@@ -54,8 +54,8 @@ const Contact = () => {
     {
       icon: Mail,
       title: 'E-mail',
-      info: 'contato@eletrosolucoes.com.br',
-      link: 'mailto:contato@eletrosolucoes.com.br'
+      info: 'bsenergiasolar17@gmail.com',
+      link: 'mailto:bsenergiasolar17@gmail.com'
     },
     {
       icon: Clock,

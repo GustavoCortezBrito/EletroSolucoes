@@ -3,12 +3,7 @@
 import { motion } from 'framer-motion'
 import { Zap } from 'lucide-react'
 
-interface LoadingScreenProps {
-  isLoading: boolean
-}
-
-const LoadingScreen = ({ isLoading }: LoadingScreenProps) => {
-  if (!isLoading) return null
+const LoadingScreen = () => {
 
   return (
     <motion.div
@@ -76,7 +71,7 @@ const LoadingScreen = ({ isLoading }: LoadingScreenProps) => {
             
             {/* Logo principal */}
             <div 
-              className="relative bg-white/10 backdrop-blur-sm rounded-full flex items-center justify-center border-2 border-white/30"
+              className="relative bg-white/10 backdrop-blur-sm rounded-full border-2 border-white/30"
               style={{ width: 120, height: 120 }}
             >
               <motion.div
@@ -88,8 +83,16 @@ const LoadingScreen = ({ isLoading }: LoadingScreenProps) => {
                   rotate: { duration: 3, repeat: Infinity, ease: "linear" },
                   scale: { duration: 1.5, repeat: Infinity, ease: "easeInOut" }
                 }}
+                className="absolute inset-0 flex items-center justify-center"
               >
-                <Zap size={48} className="text-white" fill="white" />
+                <Zap 
+                  size={48} 
+                  className="text-white" 
+                  fill="white"
+                  style={{
+                    transform: 'translateX(1px) translateY(-1px)'
+                  }}
+                />
               </motion.div>
             </div>
           </div>

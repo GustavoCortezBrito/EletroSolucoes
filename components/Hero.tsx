@@ -79,7 +79,7 @@ const Hero = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-secondary-500" />
-                <span className="text-primary-600">contato@eletrosolucoes.com.br</span>
+                <span className="text-primary-600">bsenergiasolar17@gmail.com</span>
               </div>
             </motion.div>
           </motion.div>

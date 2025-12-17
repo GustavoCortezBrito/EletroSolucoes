@@ -6,7 +6,7 @@ interface LogoFinalProps {
 }
 
 const LogoFinal = ({ className = "", size = 40 }: LogoFinalProps) => {
-  const uniqueId = `logo-${Math.random().toString(36).substr(2, 9)}`
+  const uniqueId = `logo-final-gradient`
   
   return (
     <div 
