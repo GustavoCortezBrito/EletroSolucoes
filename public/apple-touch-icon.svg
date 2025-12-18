@@ -1,0 +1,20 @@
+<svg width="180" height="180" viewBox="0 0 180 180" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="appleBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e2a8a"/>
+      <stop offset="100%" stop-color="#f97316"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Fundo -->
+  <rect width="180" height="180" rx="40" fill="url(#appleBg)"/>
+  
+  <!-- Círculo decorativo -->
+  <circle cx="90" cy="90" r="60" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+  
+  <!-- Logo container -->
+  <rect x="75" y="75" width="30" height="30" rx="8" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+  
+  <!-- Raio -->
+  <path d="M75 60 L85 80 L82 80 L95 100 L85 80 L88 80 L75 60 Z" fill="white"/>
+</svg>

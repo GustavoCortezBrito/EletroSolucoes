@@ -21,22 +21,99 @@ const Contact = () => {
     }))
   }
 
-  const handleWhatsAppSubmit = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+
+  const handleFormSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    
     const { nome, telefone, email, servico, mensagem } = formData
     
-    let whatsappMessage = `Olá! Gostaria de solicitar informações sobre projetos.\n\n`
-    whatsappMessage += `*Nome:* ${nome}\n`
-    whatsappMessage += `*Telefone:* ${telefone}\n`
-    whatsappMessage += `*E-mail:* ${email}\n`
-    whatsappMessage += `*Tipo de Serviço:* ${servico}\n`
-    if (mensagem) {
-      whatsappMessage += `*Detalhes:* ${mensagem}`
+    // Validação básica
+    if (!nome || !telefone || !email || !servico) {
+      alert('Por favor, preencha todos os campos obrigatórios.')
+      return
     }
     
-    const encodedMessage = encodeURIComponent(whatsappMessage)
-    const whatsappUrl = `https://wa.me/5518996065711?text=${encodedMessage}`
+    setIsSubmitting(true)
+    setSubmitStatus('idle')
     
-    window.open(whatsappUrl, '_blank')
+    try {
+      // 1. Enviar por email via FormSubmit
+      const formSubmitData = new FormData()
+      formSubmitData.append('name', nome)
+      formSubmitData.append('phone', telefone)
+      formSubmitData.append('email', email)
+      formSubmitData.append('service', servico)
+      formSubmitData.append('message', mensagem || 'Nenhuma mensagem adicional')
+      formSubmitData.append('_subject', `Novo Lead - ${nome} - ${servico}`)
+      formSubmitData.append('_template', 'table')
+      formSubmitData.append('_captcha', 'false')
+      
+      const response = await fetch('https://formsubmit.co/gustavocortezdev@gmail.com', {
+        method: 'POST',
+        body: formSubmitData
+      })
+      
+      if (response.ok) {
+        setSubmitStatus('success')
+        
+        // 2. Abrir WhatsApp após envio bem-sucedido
+        setTimeout(() => {
+          let whatsappMessage = `Olá! Gostaria de solicitar informações sobre projetos.\n\n`
+          whatsappMessage += `*Nome:* ${nome}\n`
+          whatsappMessage += `*Telefone:* ${telefone}\n`
+          whatsappMessage += `*E-mail:* ${email}\n`
+          whatsappMessage += `*Tipo de Serviço:* ${servico}\n`
+          if (mensagem) {
+            whatsappMessage += `*Detalhes:* ${mensagem}`
+          }
+          
+          const encodedMessage = encodeURIComponent(whatsappMessage)
+          const whatsappUrl = `https://wa.me/5518996065711?text=${encodedMessage}`
+          
+          window.open(whatsappUrl, '_blank')
+        }, 1000)
+        
+        // Limpar formulário
+        setFormData({
+          nome: '',
+          telefone: '',
+          email: '',
+          servico: '',
+          mensagem: ''
+        })
+        
+      } else {
+        throw new Error('Erro no envio')
+      }
+      
+    } catch (error) {
+      console.error('Erro ao enviar formulário:', error)
+      setSubmitStatus('error')
+      
+      // Mesmo com erro no email, ainda abre o WhatsApp
+      let whatsappMessage = `Olá! Gostaria de solicitar informações sobre projetos.\n\n`
+      whatsappMessage += `*Nome:* ${nome}\n`
+      whatsappMessage += `*Telefone:* ${telefone}\n`
+      whatsappMessage += `*E-mail:* ${email}\n`
+      whatsappMessage += `*Tipo de Serviço:* ${servico}\n`
+      if (mensagem) {
+        whatsappMessage += `*Detalhes:* ${mensagem}`
+      }
+      
+      const encodedMessage = encodeURIComponent(whatsappMessage)
+      const whatsappUrl = `https://wa.me/5518996065711?text=${encodedMessage}`
+      
+      window.open(whatsappUrl, '_blank')
+    } finally {
+      setIsSubmitting(false)
+      
+      // Reset status após 5 segundos
+      setTimeout(() => {
+        setSubmitStatus('idle')
+      }, 5000)
+    }
   }
   const contactInfo = [
     {
@@ -97,7 +174,28 @@ const Contact = () => {
               Solicite seu Projeto
             </h3>
             
-            <div className="space-y-6">
+            {/* Status Messages */}
+            {submitStatus === 'success' && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded-lg mb-4"
+              >
+                ✅ Formulário enviado com sucesso! Redirecionando para o WhatsApp...
+              </motion.div>
+            )}
+            
+            {submitStatus === 'error' && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="bg-yellow-100 border border-yellow-400 text-yellow-700 px-4 py-3 rounded-lg mb-4"
+              >
+                ⚠️ Houve um problema no envio do email, mas você será redirecionado para o WhatsApp.
+              </motion.div>
+            )}
+            
+            <form onSubmit={handleFormSubmit} className="space-y-6">
               <div className="grid sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -173,13 +271,59 @@ const Contact = () => {
               </div>
               
               <motion.button
-                onClick={handleWhatsAppSubmit}
+                type="submit"
+                disabled={isSubmitting}
+                whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
+                whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
+                className={`w-full py-4 rounded-lg font-semibold flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl transition-all ${
+                  isSubmitting 
+                    ? 'bg-gray-400 cursor-not-allowed' 
+                    : 'bg-gradient-to-r from-green-500 to-green-600 text-white'
+                }`}
+              >
+                {isSubmitting ? (
+                  <>
+                    <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white"></div>
+                    <span>Enviando...</span>
+                  </>
+                ) : (
+                  <>
+                    <Send className="h-5 w-5" />
+                    <span>Enviar por Email + WhatsApp</span>
+                  </>
+                )}
+              </motion.button>
+              
+              <p className="text-sm text-gray-600 text-center">
+                📧 Seu formulário será enviado por email e você será redirecionado para o WhatsApp
+              </p>
+            </form>
+            
+            <div className="mt-4 pt-4 border-t border-gray-200">
+              <p className="text-sm text-gray-600 text-center mb-3">Ou fale conosco diretamente:</p>
+              <motion.button
+                type="button"
+                onClick={() => {
+                  const { nome, telefone, email, servico, mensagem } = formData
+                  
+                  let whatsappMessage = `Olá! Gostaria de solicitar informações sobre projetos.\n\n`
+                  if (nome) whatsappMessage += `*Nome:* ${nome}\n`
+                  if (telefone) whatsappMessage += `*Telefone:* ${telefone}\n`
+                  if (email) whatsappMessage += `*E-mail:* ${email}\n`
+                  if (servico) whatsappMessage += `*Tipo de Serviço:* ${servico}\n`
+                  if (mensagem) whatsappMessage += `*Detalhes:* ${mensagem}`
+                  
+                  const encodedMessage = encodeURIComponent(whatsappMessage)
+                  const whatsappUrl = `https://wa.me/5518996065711?text=${encodedMessage}`
+                  
+                  window.open(whatsappUrl, '_blank')
+                }}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full bg-gradient-to-r from-green-500 to-green-600 text-white py-4 rounded-lg font-semibold flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl transition-shadow"
+                className="w-full bg-gradient-to-r from-blue-500 to-blue-600 text-white py-3 rounded-lg font-medium flex items-center justify-center space-x-2 shadow-md hover:shadow-lg transition-shadow"
               >
-                <MessageCircle className="h-5 w-5" />
-                <span>Enviar pelo WhatsApp</span>
+                <MessageCircle className="h-4 w-4" />
+                <span>Apenas WhatsApp</span>
               </motion.button>
             </div>
           </motion.div>

@@ -1,0 +1,51 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fundo gradiente -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1e2a8a"/>
+      <stop offset="100%" stop-color="#f97316"/>
+    </linearGradient>
+    <linearGradient id="orangeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f97316"/>
+      <stop offset="100%" stop-color="#ea580c"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Fundo -->
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  
+  <!-- Partículas decorativas -->
+  <circle cx="150" cy="100" r="3" fill="rgba(255,255,255,0.2)"/>
+  <circle cx="1050" cy="150" r="2" fill="rgba(255,255,255,0.3)"/>
+  <circle cx="200" cy="500" r="2.5" fill="rgba(255,255,255,0.2)"/>
+  <circle cx="1000" cy="480" r="3" fill="rgba(255,255,255,0.25)"/>
+  <circle cx="900" cy="200" r="2" fill="rgba(255,255,255,0.3)"/>
+  <circle cx="300" cy="350" r="2.5" fill="rgba(255,255,255,0.2)"/>
+  
+  <!-- Círculos decorativos -->
+  <circle cx="600" cy="315" r="180" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+  <circle cx="600" cy="315" r="220" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/>
+  
+  <!-- Logo container -->
+  <rect x="540" y="180" width="120" height="120" rx="30" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.3)" stroke-width="3"/>
+  
+  <!-- Logo - Raio -->
+  <g transform="translate(600, 240)">
+    <path d="M-15 -25 L-5 -5 L-10 -5 L10 15 L0 -5 L5 -5 L-15 -25 Z" fill="white"/>
+  </g>
+  
+  <!-- Título principal -->
+  <text x="600" y="380" font-family="Arial, sans-serif" font-size="72" font-weight="bold" fill="white" text-anchor="middle">
+    Eletro Soluções
+  </text>
+  
+  <!-- Subtítulo -->
+  <text x="600" y="430" font-family="Arial, sans-serif" font-size="36" fill="rgba(255,255,255,0.95)" text-anchor="middle">
+    Projetos de Energia Solar Fotovoltaica
+  </text>
+  
+  <!-- Descrição -->
+  <text x="600" y="480" font-family="Arial, sans-serif" font-size="24" fill="rgba(255,255,255,0.85)" text-anchor="middle">
+    Homologações • Consultoria Técnica • Suporte Completo
+  </text>
+</svg>
