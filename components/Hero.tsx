@@ -19,7 +19,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.8 }}
-              className="text-4xl lg:text-6xl font-bold text-primary-800 leading-tight"
+              className="text-3xl sm:text-4xl lg:text-6xl font-bold text-primary-800 leading-tight"
             >
               Projetos de Energia Solar
               <span className="gradient-text block">
@@ -31,7 +31,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.8 }}
-              className="text-xl text-primary-600 leading-relaxed"
+              className="text-lg sm:text-xl text-primary-600 leading-relaxed"
             >
               Especialistas em projetos de energia solar fotovoltaica, homologações e regularização 
               junto às concessionárias. Suporte técnico completo para integradores e instaladores.
@@ -41,7 +41,7 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.8 }}
-              className="flex flex-col sm:flex-row gap-4"
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4"
             >
               <motion.a
                 href="https://wa.me/5518996065711?text=Olá! Gostaria de solicitar um orçamento para projeto de energia solar fotovoltaica."
@@ -49,9 +49,9 @@ const Hero = () => {
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-r from-green-500 to-green-600 text-white px-8 py-4 rounded-lg font-semibold flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl transition-shadow"
+                className="bg-gradient-to-r from-green-500 to-green-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl transition-shadow text-sm sm:text-base"
               >
-                <MessageCircle className="h-5 w-5" />
+                <MessageCircle className="h-4 w-4 sm:h-5 sm:w-5" />
                 <span>Falar no WhatsApp</span>
               </motion.a>
 
@@ -59,9 +59,9 @@ const Hero = () => {
                 href="tel:+5518997391723"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="border-2 border-secondary-500 text-secondary-600 px-8 py-4 rounded-lg font-semibold flex items-center justify-center space-x-2 hover:bg-secondary-50 transition-colors"
+                className="border-2 border-secondary-500 text-secondary-600 px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold flex items-center justify-center space-x-2 hover:bg-secondary-50 transition-colors text-sm sm:text-base"
               >
-                <Phone className="h-5 w-5" />
+                <Phone className="h-4 w-4 sm:h-5 sm:w-5" />
                 <span>Ligar Agora</span>
               </motion.a>
             </motion.div>
@@ -71,15 +71,15 @@ const Hero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.8, duration: 0.8 }}
-              className="flex flex-col sm:flex-row gap-6 pt-8 border-t border-gray-200"
+              className="flex flex-col sm:flex-row gap-4 sm:gap-6 pt-6 sm:pt-8 border-t border-gray-200"
             >
               <div className="flex items-center space-x-3">
-                <Phone className="h-5 w-5 text-secondary-500" />
-                <span className="text-primary-600">(18) 99739-1723</span>
+                <Phone className="h-4 w-4 sm:h-5 sm:w-5 text-secondary-500 flex-shrink-0" />
+                <span className="text-primary-600 text-sm sm:text-base">(18) 99739-1723</span>
               </div>
               <div className="flex items-center space-x-3">
-                <Mail className="h-5 w-5 text-secondary-500" />
-                <span className="text-primary-600">bsenergiasolar17@gmail.com</span>
+                <Mail className="h-4 w-4 sm:h-5 sm:w-5 text-secondary-500 flex-shrink-0" />
+                <span className="text-primary-600 text-sm sm:text-base break-all">bsenergiasolar17@gmail.com</span>
               </div>
             </motion.div>
           </motion.div>

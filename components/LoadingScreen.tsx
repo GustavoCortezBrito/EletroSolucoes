@@ -51,28 +51,37 @@ const LoadingScreen = () => {
           initial={{ scale: 0.5, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className="mb-8"
+          className="mb-8 flex justify-center"
         >
           <div className="relative">
             {/* Círculo pulsante */}
             <motion.div
               animate={{ 
                 scale: [1, 1.2, 1],
-                opacity: [0.3, 0.6, 0.3]
+                opacity: [0.2, 0.5, 0.2]
               }}
               transition={{ 
                 duration: 2,
                 repeat: Infinity,
                 ease: "easeInOut"
               }}
-              className="absolute inset-0 bg-white/20 rounded-full"
-              style={{ width: 120, height: 120 }}
+              className="absolute top-0 left-0 rounded-full border border-white/20"
+              style={{ 
+                width: 120, 
+                height: 120,
+                background: 'linear-gradient(135deg, rgba(30, 42, 138, 0.2) 0%, rgba(249, 115, 22, 0.2) 100%)'
+              }}
             />
             
             {/* Logo principal */}
             <div 
-              className="relative bg-white/10 backdrop-blur-sm rounded-full border-2 border-white/30"
-              style={{ width: 120, height: 120 }}
+              className="relative flex items-center justify-center rounded-full border-2 border-white/30"
+              style={{ 
+                width: 120, 
+                height: 120,
+                background: 'linear-gradient(135deg, rgba(30, 42, 138, 0.3) 0%, rgba(249, 115, 22, 0.3) 100%)',
+                backdropFilter: 'blur(10px)'
+              }}
             >
               <motion.div
                 animate={{ 
@@ -83,15 +92,12 @@ const LoadingScreen = () => {
                   rotate: { duration: 3, repeat: Infinity, ease: "linear" },
                   scale: { duration: 1.5, repeat: Infinity, ease: "easeInOut" }
                 }}
-                className="absolute inset-0 flex items-center justify-center"
+                className="flex items-center justify-center"
               >
                 <Zap 
-                  size={48} 
+                  size={72} 
                   className="text-white" 
                   fill="white"
-                  style={{
-                    transform: 'translateX(1px) translateY(-1px)'
-                  }}
                 />
               </motion.div>
             </div>

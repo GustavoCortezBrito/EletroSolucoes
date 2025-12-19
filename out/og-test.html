@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste OpenGraph - Eletro Soluções</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .test-section {
+            background: #f5f5f5;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            border-left: 4px solid #1e2a8a;
+        }
+        .test-section h3 {
+            color: #1e2a8a;
+            margin-top: 0;
+        }
+        .url-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .btn {
+            background: #1e2a8a;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin: 5px;
+        }
+        .btn:hover {
+            background: #2d3a9a;
+        }
+        .image-preview {
+            max-width: 100%;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+        .success {
+            color: #28a745;
+            font-weight: bold;
+        }
+        .warning {
+            color: #ffc107;
+            font-weight: bold;
+        }
+        .error {
+            color: #dc3545;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔍 Teste OpenGraph - Eletro Soluções</h1>
+    
+    <div class="test-section">
+        <h3>📋 Informações do OpenGraph</h3>
+        <p><strong>URL do Site:</strong> https://eletrosolucoes.com.br</p>
+        <p><strong>Imagem OpenGraph:</strong> https://eletrosolucoes.com.br/opengraph-image.svg</p>
+        <p><strong>Dimensões:</strong> 1200x630px</p>
+        <p><strong>Formato:</strong> SVG (com fallback JPG)</p>
+    </div>
+    
+    <div class="test-section">
+        <h3>🖼️ Preview da Imagem OpenGraph</h3>
+        <img src="/opengraph-image.svg" alt="OpenGraph Preview" class="image-preview">
+        <p><em>Esta é a imagem que aparecerá quando o link for compartilhado</em></p>
+    </div>
+    
+    <div class="test-section">
+        <h3>🧪 Ferramentas de Teste</h3>
+        <p>Use estas ferramentas para testar se o OpenGraph está funcionando:</p>
+        
+        <a href="https://developers.facebook.com/tools/debug/" target="_blank" class="btn">
+            Facebook Debugger
+        </a>
+        
+        <a href="https://cards-dev.twitter.com/validator" target="_blank" class="btn">
+            Twitter Card Validator
+        </a>
+        
+        <a href="https://www.linkedin.com/post-inspector/" target="_blank" class="btn">
+            LinkedIn Post Inspector
+        </a>
+        
+        <a href="https://www.opengraph.xyz/" target="_blank" class="btn">
+            OpenGraph.xyz
+        </a>
+    </div>
+    
+    <div class="test-section">
+        <h3>✅ Checklist de Verificação</h3>
+        <ul>
+            <li class="success">✓ Meta tag og:title definida</li>
+            <li class="success">✓ Meta tag og:description definida</li>
+            <li class="success">✓ Meta tag og:image definida</li>
+            <li class="success">✓ Meta tag og:url definida</li>
+            <li class="success">✓ Meta tag og:type definida</li>
+            <li class="success">✓ Dimensões da imagem corretas (1200x630)</li>
+            <li class="success">✓ URL absoluta para imagem</li>
+            <li class="success">✓ Twitter Card configurado</li>
+            <li class="success">✓ Schema.org estruturado</li>
+        </ul>
+    </div>
+    
+    <div class="test-section">
+        <h3>🔧 Como Testar</h3>
+        <ol>
+            <li>Faça o deploy do site</li>
+            <li>Acesse as ferramentas de teste acima</li>
+            <li>Cole a URL: <code>https://eletrosolucoes.com.br</code></li>
+            <li>Verifique se a imagem aparece corretamente</li>
+            <li>Se não aparecer, force o cache usando o Facebook Debugger</li>
+        </ol>
+    </div>
+    
+    <div class="test-section">
+        <h3>📱 Teste Manual</h3>
+        <p>Para testar manualmente:</p>
+        <ol>
+            <li>Compartilhe o link no WhatsApp, Facebook, Twitter ou LinkedIn</li>
+            <li>Verifique se a imagem, título e descrição aparecem</li>
+            <li>Se não aparecer, aguarde alguns minutos e tente novamente</li>
+        </ol>
+    </div>
+    
+    <div class="test-section">
+        <h3>🚨 Solução de Problemas</h3>
+        <p><strong>Se a imagem não aparecer:</strong></p>
+        <ul>
+            <li>Verifique se o arquivo existe em <code>/public/opengraph-image.svg</code></li>
+            <li>Confirme que a URL absoluta está correta</li>
+            <li>Use o Facebook Debugger para forçar atualização do cache</li>
+            <li>Aguarde até 24h para propagação completa</li>
+            <li>Teste com a versão JPG como fallback</li>
+        </ul>
+    </div>
+</body>
+</html>

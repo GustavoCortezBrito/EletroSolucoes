@@ -1,0 +1,83 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradiente principal -->
+    <linearGradient id="mainGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e2a8a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f97316;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Gradiente para o logo -->
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0.1" />
+    </linearGradient>
+    
+    <!-- Filtro para sombra -->
+    <filter id="textShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="3" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+    
+    <!-- Animação de pulso -->
+    <animate id="pulseAnimation" attributeName="r" values="70;80;70" dur="2s" repeatCount="indefinite"/>
+  </defs>
+  
+  <!-- Fundo com gradiente -->
+  <rect width="1200" height="630" fill="url(#mainGradient)"/>
+  
+  <!-- Partículas decorativas -->
+  <circle cx="180" cy="63" r="2" fill="rgba(255,255,255,0.2)"/>
+  <circle cx="1020" cy="126" r="2" fill="rgba(255,255,255,0.2)"/>
+  <circle cx="120" cy="441" r="2" fill="rgba(255,255,255,0.2)"/>
+  <circle cx="1080" cy="504" r="2" fill="rgba(255,255,255,0.2)"/>
+  <circle cx="900" cy="189" r="2" fill="rgba(255,255,255,0.2)"/>
+  <circle cx="300" cy="378" r="2" fill="rgba(255,255,255,0.2)"/>
+  
+  <!-- Círculos decorativos -->
+  <circle cx="0" cy="0" r="100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  <circle cx="1200" cy="630" r="100" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+  
+  <!-- Container do logo -->
+  <g transform="translate(600, 180)">
+    <!-- Círculo de fundo do logo com animação -->
+    <circle cx="0" cy="0" r="70" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2">
+      <animate attributeName="r" values="70;80;70" dur="2s" repeatCount="indefinite"/>
+      <animate attributeName="stroke-opacity" values="0.3;0.6;0.3" dur="2s" repeatCount="indefinite"/>
+    </circle>
+    
+    <!-- Fundo do logo -->
+    <rect x="-60" y="-60" width="120" height="120" rx="30" fill="url(#logoGradient)" stroke="rgba(255,255,255,0.3)" stroke-width="3"/>
+    
+    <!-- Ícone de raio -->
+    <g transform="translate(0, 0)">
+      <path d="M6.5 -12L-6.5 2h8l-1 8 10-12h-8l1-8z" fill="white" transform="scale(2.5)"/>
+    </g>
+  </g>
+  
+  <!-- Título principal -->
+  <text x="600" y="320" font-family="Arial, sans-serif" font-size="72" font-weight="bold" fill="white" text-anchor="middle" filter="url(#textShadow)">
+    Eletro Soluções
+  </text>
+  
+  <!-- Subtítulo -->
+  <text x="600" y="380" font-family="Arial, sans-serif" font-size="36" font-weight="500" fill="rgba(255,255,255,0.95)" text-anchor="middle" filter="url(#textShadow)">
+    Projetos de Energia Solar Fotovoltaica
+  </text>
+  
+  <!-- Descrição -->
+  <text x="600" y="430" font-family="Arial, sans-serif" font-size="24" font-weight="400" fill="rgba(255,255,255,0.85)" text-anchor="middle" filter="url(#textShadow)">
+    Homologações • Consultoria Técnica • Suporte Completo
+  </text>
+  
+  <!-- URL do site -->
+  <text x="600" y="480" font-family="Arial, sans-serif" font-size="20" font-weight="400" fill="rgba(255,255,255,0.7)" text-anchor="middle">
+    eletrosolucoes.com.br
+  </text>
+  
+  <!-- Elementos decorativos adicionais -->
+  <g opacity="0.1">
+    <rect x="50" y="50" width="100" height="2" fill="white" transform="rotate(45 100 51)"/>
+    <rect x="1050" y="530" width="100" height="2" fill="white" transform="rotate(45 1100 531)"/>
+    <rect x="100" y="500" width="80" height="2" fill="white" transform="rotate(-45 140 501)"/>
+    <rect x="1000" y="100" width="80" height="2" fill="white" transform="rotate(-45 1040 101)"/>
+  </g>
+</svg>

@@ -31,9 +31,9 @@ const About = () => {
   ]
 
   return (
-    <section id="sobre" className="py-20 bg-white">
+    <section id="sobre" className="py-16 sm:py-20 bg-white">
       <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Content */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}

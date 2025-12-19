@@ -12,7 +12,7 @@ import Footer from '@/components/Footer'
 // import { homePageSEO } from '@/lib/seo'
 import { organizationSchema, localBusinessSchema, serviceSchema, websiteSchema, faqSchema } from '@/lib/structured-data'
 
-const SmoothScroll = dynamic(() => import('@/components/SmoothScroll'), { ssr: false })
+// const SmoothScroll = dynamic(() => import('@/components/SmoothScroll'), { ssr: false })
 
 export default function Home() {
   return (
@@ -37,7 +37,7 @@ export default function Home() {
         className="min-h-screen bg-white"
         suppressHydrationWarning
       >
-        <SmoothScroll />
+        {/* <SmoothScroll /> */}
         <Header />
         <Hero />
         <Services />

@@ -54,12 +54,12 @@ const Services = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12 sm:mb-16"
         >
-          <h2 className="text-4xl font-bold text-primary-800 mb-4">
+          <h2 className="text-3xl sm:text-4xl font-bold text-primary-800 mb-4">
             Nossos <span className="gradient-text">Serviços</span>
           </h2>
-          <p className="text-xl text-primary-600 max-w-3xl mx-auto">
+          <p className="text-lg sm:text-xl text-primary-600 max-w-3xl mx-auto px-4">
             Especialistas em projetos de energia solar fotovoltaica e engenharia elétrica, 
             oferecendo suporte técnico completo para integradores, instaladores e clientes finais.
           </p>
@@ -70,32 +70,32 @@ const Services = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
         >
           {services.map((service, index) => (
             <motion.div
               key={index}
               variants={itemVariants}
               whileHover={{ y: -5, scale: 1.02 }}
-              className="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300"
+              className="bg-white rounded-xl p-6 sm:p-8 shadow-lg hover:shadow-xl transition-all duration-300"
             >
               <div className="hero-gradient w-16 h-16 rounded-lg flex items-center justify-center mb-6">
                 <service.icon className="h-8 w-8 text-white" />
               </div>
               
-              <h3 className="text-xl font-bold text-primary-800 mb-4">
+              <h3 className="text-lg sm:text-xl font-bold text-primary-800 mb-4 leading-tight">
                 {service.title}
               </h3>
               
-              <p className="text-primary-600 mb-6 leading-relaxed">
+              <p className="text-sm sm:text-base text-primary-600 mb-6 leading-relaxed">
                 {service.description}
               </p>
               
               <ul className="space-y-2">
                 {service.features.map((feature, featureIndex) => (
                   <li key={featureIndex} className="flex items-center space-x-2">
-                    <div className="w-2 h-2 bg-secondary-500 rounded-full"></div>
-                    <span className="text-sm text-primary-600">{feature}</span>
+                    <div className="w-2 h-2 bg-secondary-500 rounded-full flex-shrink-0"></div>
+                    <span className="text-xs sm:text-sm text-primary-600">{feature}</span>
                   </li>
                 ))}
               </ul>
@@ -108,7 +108,7 @@ const Services = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           viewport={{ once: true }}
-          className="text-center mt-16"
+          className="text-center mt-12 sm:mt-16"
         >
           <motion.a
             href="https://wa.me/5518996065711?text=Olá! Gostaria de solicitar um orçamento para projeto de energia solar fotovoltaica."
@@ -116,10 +116,11 @@ const Services = () => {
             rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="bg-gradient-to-r from-green-500 to-green-600 text-white px-8 py-4 rounded-lg font-semibold inline-flex items-center space-x-2 shadow-lg hover:shadow-xl transition-shadow"
+            className="bg-gradient-to-r from-green-500 to-green-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-lg font-semibold inline-flex items-center space-x-2 shadow-lg hover:shadow-xl transition-shadow text-sm sm:text-base"
           >
-            <span>Solicitar Orçamento no WhatsApp</span>
-            <Zap className="h-5 w-5" />
+            <span className="hidden sm:inline">Solicitar Orçamento no WhatsApp</span>
+            <span className="sm:hidden">Orçamento WhatsApp</span>
+            <Zap className="h-4 w-4 sm:h-5 sm:w-5" />
           </motion.a>
         </motion.div>
       </div>
